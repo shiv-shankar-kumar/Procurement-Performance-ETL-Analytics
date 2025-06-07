@@ -94,7 +94,5 @@ Business queries : https://github.com/shiv-shankar-kumar/Procurement-Performance
 - **Unsold Capital Locked**: **$2.71M**  
 - > These insights supported vendor pruning, pricing decisions, and capital efficiency improvements.
 
----
 
-## 📁 Project Structure
 
