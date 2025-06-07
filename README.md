@@ -5,6 +5,8 @@ This project presents an end-to-end ETL and analytics pipeline focused on **proc
 
 ---
 
+
+
 ## 🧠 Business Context
 
 Effective inventory and sales management are critical for optimizing profitability in the retail and wholesale liquor industry. Companies must ensure they are not incurring losses due to:
@@ -26,6 +28,8 @@ The goal of this analysis is to support **data-driven procurement strategy** by 
 
 ---
 
+
+
 ## 🧮 Dataset Overview
 
 The data was provided in CSV format and includes:
@@ -38,7 +42,9 @@ The data was provided in CSV format and includes:
 
 This raw data was modeled into a relational schema using SQLite.
 
+
 ---
+
 
 
 ## 🧱 Data Modeling
@@ -54,7 +60,9 @@ Key relationships:
 
 This schema allowed for efficient joins and insights across brands, vendors, and dates.
 
+
 ---
+
 
 
 ## ⚙️ ETL & Logic Flow
@@ -75,7 +83,9 @@ the final aggregated dataset : https://github.com/shiv-shankar-kumar/Procurement
   - Excise tax & freight cost impact
   - Inventory and brand-level insights
 
+
 ---
+
 
 
 ## 📊 Key Insights
@@ -90,7 +100,9 @@ Business queries : https://github.com/shiv-shankar-kumar/Procurement-Performance
 | How much capital is locked in unsold inventory? | Inventory × unit cost calculations |
 | What's the margin variability across vendors? | 95% CI using Seaborn/Matplotlib |
 
+
 ---
+
 
 
 ## 💰 Business Impact Summary
