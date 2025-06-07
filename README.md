@@ -2,6 +2,7 @@
 
 This project presents an end-to-end ETL and analytics pipeline focused on **procurement performance** for a liquor retail and wholesale business. It aims to improve **vendor selection**, **inventory turnover**, and **cost efficiency** by transforming and analyzing multi-source transactional data.
 
+
 ---
 
 ## 🧠 Business Context
@@ -10,15 +11,18 @@ Effective inventory and sales management are critical for optimizing profitabili
 - Inefficient vendor pricing
 - High capital Lock-in due to Low inventory turnover
 - Dependency on underperforming vendors
+  
 
 ## 🎯 Project Objectives
 The goal of this analysis is to support **data-driven procurement strategy** by building a complete ETL and analytics pipeline. Key business objectives include:
+
 
 - 📉 **Identify underperforming brands** that require promotional or pricing adjustments  
 - 🏆 **Determine top vendors** contributing to overall sales and gross profit  
 - 📦 **Analyze the impact of bulk purchasing** on unit costs to identify cost-saving opportunities  
 - 🔄 **Assess inventory turnover** to reduce holding costs and improve supply chain efficiency  
-- 📊 **Investigate profitability variance** between high-performing and low-performing vendors using statistical measures  
+- 📊 **Investigate profitability variance** between high-performing and low-performing vendors using statistical measures
+  
 
 ---
 
@@ -36,6 +40,7 @@ This raw data was modeled into a relational schema using SQLite.
 
 ---
 
+
 ## 🧱 Data Modeling
 https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/Untitled.svg
 
@@ -50,6 +55,7 @@ Key relationships:
 This schema allowed for efficient joins and insights across brands, vendors, and dates.
 
 ---
+
 
 ## ⚙️ ETL & Logic Flow
 
@@ -71,6 +77,7 @@ the final aggregated dataset : https://github.com/shiv-shankar-kumar/Procurement
 
 ---
 
+
 ## 📊 Key Insights
 Business queries : https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/VP_Analysis.ipynb
 
@@ -84,6 +91,7 @@ Business queries : https://github.com/shiv-shankar-kumar/Procurement-Performance
 | What's the margin variability across vendors? | 95% CI using Seaborn/Matplotlib |
 
 ---
+
 
 ## 💰 Business Impact Summary
 
