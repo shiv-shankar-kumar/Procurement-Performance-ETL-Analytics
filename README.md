@@ -1,118 +1,124 @@
-# 📘 Procurement Performance ETL & Analytics
-
-This project presents an end-to-end ETL and analytics pipeline focused on **procurement performance** for a liquor retail and wholesale business. It aims to improve **vendor selection**, **inventory turnover**, and **cost efficiency** by transforming and analyzing multi-source transactional data.
-
+# 📘 Procurement Performance ETL & Analytics  
+An end-to-end data pipeline and analytics solution for procurement optimization in the liquor retail and wholesale industry.
 
 ---
 
+## 📌 Project Overview
 
+### 🧠 Background  
+In the retail and wholesale liquor business, profitability depends heavily on efficient vendor management, inventory turnover, and cost control. Businesses often suffer losses due to:
 
-## 🧠 Business Context
+- Inefficient vendor pricing  
+- High capital lock-in from unsold inventory  
+- Dependence on underperforming vendors  
 
-Effective inventory and sales management are critical for optimizing profitability in the retail and wholesale liquor industry. Companies must ensure they are not incurring losses due to:
-- Inefficient vendor pricing
-- High capital Lock-in due to Low inventory turnover
-- Dependency on underperforming vendors
-  
-
-## 🎯 Project Objectives
-The goal of this analysis is to support **data-driven procurement strategy** by building a complete ETL and analytics pipeline. Key business objectives include:
-
-
-- 📉 **Identify underperforming brands** that require promotional or pricing adjustments  
-- 🏆 **Determine top vendors** contributing to overall sales and gross profit  
-- 📦 **Analyze the impact of bulk purchasing** on unit costs to identify cost-saving opportunities  
-- 🔄 **Assess inventory turnover** to reduce holding costs and improve supply chain efficiency  
-- 📊 **Investigate profitability variance** between high-performing and low-performing vendors using statistical measures
-  
-
----
+This project leverages ETL (Extract, Transform, Load) techniques to clean and model procurement data, enabling data-driven decisions and operational insights.
 
 
 
-## 🧮 Dataset Overview
+### 🎯 Purpose  
+This project was built to support strategic procurement decisions by creating a robust ETL pipeline and analytical framework. It focuses on:
 
-The data was provided in CSV format and includes:
-
-- **Sales**: Quantity, price, tax, vendor, brand, store, dates  
-- **Purchases**: Quantity, price, vendor info, invoice and PO dates  
-- **Vendor Invoice**: Freight costs and payment metadata  
-- **Inventory**: Opening and closing stock  
-- **Pricing Table**: Purchase and retail price per brand
-
-This raw data was modeled into a relational schema using SQLite.
-
+- Identifying underperforming brands needing pricing or promotional changes  
+- Recognizing top-performing vendors based on sales and gross profit  
+- Evaluating cost-saving opportunities through bulk purchases  
+- Assessing inventory turnover to minimize holding costs  
+- Analyzing profitability variance between vendors using statistical methods  
 
 ---
 
+## 🔍 Overview of the Code
 
-
-## 🧱 Data Modeling
-https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/Untitled.svg
-
-Six core tables were modeled:
-- `sales`, `purchases`, `purchase_prices`, `vendor_invoice`, `begin_inventory`, `end_inventory`
-
-Key relationships:
-- One-to-many between inventory and sales/purchases
-- Many-to-one between vendors and products
-- Links between purchase records and invoice metadata
-
-This schema allowed for efficient joins and insights across brands, vendors, and dates.
-
+The analysis follows a modular structure across multiple Jupyter Notebooks, culminating in a fully functional ETL and reporting process.
 
 ---
 
+### 🧱 Data Modeling  
+The raw data was provided in CSV format and modeled into a relational schema using SQLite. The schema consists of six core tables:
 
+- `sales`  
+- `purchases`  
+- `purchase_prices`  
+- `vendor_invoice`  
+- `begin_inventory`  
+- `end_inventory`  
 
-## ⚙️ ETL & Logic Flow
+**Key Relationships:**  
+- One-to-many between inventory and sales/purchases  
+- Many-to-one between vendors and products  
+- Links between purchase records and invoice metadata  
 
-for Ingestion : https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/ingestion_db.ipynb
-### 🔄 ETL Pipeline:
-1. **Extract**: Loaded CSVs using Python (Pandas)
-2. **Transform**:
-   - Cleaned, standardized, and joined across tables
-   - Created **CTEs** for modular logic
-3. **Load**: Final summary tables written back to SQLite
-
-the final aggregated dataset : https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/Transformation%26Load.ipynb
-### 📌 Final SQL Output Table:
-- `vendor_sales_summary` includes:
-  - Purchase price vs actual sale price
-  - Sales & purchase quantities
-  - Excise tax & freight cost impact
-  - Inventory and brand-level insights
-
+**Schema Diagram:**  
+📎 [View Schema](https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/Untitled.svg)
 
 ---
 
+### ⚙️ ETL Pipeline
 
+#### **Ingestion:**  
+🔗 [ingestion_db.ipynb](https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/ingestion_db.ipynb)  
+- CSVs loaded using Python and Pandas
 
-## 📊 Key Insights
-Business queries : https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/VP_Analysis.ipynb
+#### **Transformation:**  
+🔗 [Transformation & Load Notebook](https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/Transformation%26Load.ipynb)  
+- Cleaned and standardized datasets  
+- Created Common Table Expressions (CTEs) for modular SQL logic  
 
-| Business Question | Answered Through |
-|-------------------|------------------|
-| Which brands underperform despite high margins? | Sales & margin filters on final summary |
-| Who are the top vendors by sales and profitability? | Grouped by VendorName and Brand |
-| Does bulk purchasing reduce unit cost? | Volume vs unit price analysis |
-| Which vendors have slow inventory turnover? | On-hand stock vs sales ratio |
-| How much capital is locked in unsold inventory? | Inventory × unit cost calculations |
-| What's the margin variability across vendors? | 95% CI using Seaborn/Matplotlib |
-
+#### **Load:**  
+- Transformed summary tables written back to SQLite
 
 ---
 
+### 📌 Final Output Table: `vendor_sales_summary`  
+Includes:
 
+- Purchase vs Sale Price  
+- Quantity sold/purchased  
+- Freight & Excise tax impact  
+- Inventory dynamics and brand-level performance  
 
-## 💰 Business Impact Summary
+---
 
-- **Total Sales**: $441M  
-- **Total Purchases (with Freight)**: $307.34M  
-- **Gross Profit**: $134.07M  
-- **Overall Gross Margin**: **30.37%**  
-- **Unsold Capital Locked**: **$2.71M**  
-- > These insights supported vendor pruning, pricing decisions, and capital efficiency improvements.
+## 📊 Business Insights  
+🔗 [Business Queries Notebook](https://github.com/shiv-shankar-kumar/Procurement-Performance-ETL-Analytics/blob/main/VP_Analysis.ipynb)
 
+| Business Question | Insight Method |
+|-------------------|----------------|
+| Which brands underperform despite high margins? | Filters on sales and margin in summary table |
+| Who are the top vendors by sales and profit? | Grouped by `VendorName` and `Brand` |
+| Does bulk purchasing reduce unit cost? | Volume vs Unit Cost analysis |
+| Which vendors have slow inventory turnover? | Sales vs On-hand stock ratio |
+| How much capital is locked in inventory? | Unit cost × Unsold stock |
+| What's the margin variability between vendors? | 95% CI plots using Seaborn and Matplotlib |
 
+---
 
+## 💰 Business Impact Summary  
+
+- **Total Sales:** $441M  
+- **Total Purchases (incl. Freight):** $307.34M  
+- **Gross Profit:** $134.07M  
+- **Overall Gross Margin:** 30.37%  
+- **Unsold Capital Locked:** $2.71M  
+
+---
+
+## 🧮 Resources
+
+### **Data Sources**
+- Sales, purchases, inventory, and invoice data in CSV format
+
+### **Environment**
+- Python 3.x  
+- SQLite  
+
+### **Dependencies**
+- pandas  
+- numpy  
+- matplotlib / seaborn  
+- sqlite3  
+- Jupyter Notebook  
+
+### **Software**
+- Jupyter Notebook  
+- SQLite Browser  
